@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美国代购员招聘 - 每日佣金$300-$1000 | 零押金工资日结</title>
+  <meta name="description" content="美国代购员招聘，每日佣金$300-$1000美金，零押金，工资日结，加油吃饭全包。联系WhatsApp +1 9432626236" />
+  <meta name="keywords" content="美国招聘，代购员，兼职，佣金，日结，华人招聘" />
+  <meta property="og:title" content="美国代购员招聘 - 每日佣金$300-$1000" />
+  <meta property="og:description" content="零押金，工资日结，加油吃饭全包！联系WhatsApp +1 9432626236" />
+  <meta property="og:type" content="website" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #f97316 100%);
+      min-height: 100vh;
+      color: #fff;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .hero .subtitle {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fbbf24;
+      margin-bottom: 15px;
+    }
+    .hero .salary {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fbbf24;
+      margin: 20px 0;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .hero .benefits {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      line-height: 2;
+    }
+    .hero .benefits span {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin: 5px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      padding: 20px 50px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 50px;
+      margin: 30px 10px;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37,211,102,0.6);
+    }
+    .phone {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 20px 0;
+      color: #fbbf24;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-card .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+    .footer-links {
+      margin: 20px 0;
+    }
+    .footer-links a {
+      color: #fbbf24;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #fff;
+      color: #333;
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 700px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-content h2 {
+      color: #1e3c72;
+      margin-bottom: 20px;
+    }
+    .modal-content p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+    .close-btn {
+      float: right;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+    }
+    .close-btn:hover {
+      color: #333;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .subtitle { font-size: 1.3rem; }
+      .hero .salary { font-size: 1.8rem; }
+      .cta-button { padding: 15px 30px; font-size: 1.2rem; }
+      .phone { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>🇺🇸 美国代购员招聘</h1>
+      <div class="subtitle">每日佣金</div>
+      <div class="salary">💰 $300 - $1000 美金 💰</div>
+      <div class="benefits">
+        <span>✅ 零押金</span>
+        <span>✅ 工资日结</span>
+        <span>✅ 加油全包</span>
+        <span>✅ 吃饭全包</span>
+      </div>
+      <div class="phone"> +1 9432626236</div>
+      <a href="https://wa.me/19432626236?text=您好，我对代购员职位感兴趣" class="cta-button" target="_blank">
+        💬 一键添加 WhatsApp
+      </a>
+      <p style="margin-top: 20px; font-size: 1.1rem;">唯一联系方式，非诚勿扰</p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">💵</div>
+        <h3>高额佣金</h3>
+        <p>每日佣金 $300-$1000，多劳多得，上不封顶</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>日结工资</h3>
+        <p>当天结算，绝不拖欠，安全可靠</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🚗</div>
+        <h3>交通补贴</h3>
+        <p>加油费用全包，出行无忧</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🍱</div>
+        <h3>餐饮补贴</h3>
+        <p>工作餐全包，无需自费</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"></div>
+        <h3>零押金</h3>
+        <p>无需任何押金，轻松入职</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📱</div>
+        <h3>灵活时间</h3>
+        <p>时间自由安排，兼职全职均可</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>美华人力资源有限公司</strong></p>
+      <p>American Chinese Human Resources Co., Ltd.</p>
+      <div class="footer-links">
+        <a href="#" onclick="openModal('privacy')">隐私条例</a>
+        <a href="#" onclick="openModal('contact')">联系我们</a>
+        <a href="#" onclick="openModal('about')">关于我们</a>
+      </div>
+      <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+        © 2024 美华人力资源有限公司 版权所有
+      </p>
+    </div>
+  </div>
+
+  <!-- 隐私条例弹窗 -->
+  <div id="privacy-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('privacy')">&times;</span>
+      <h2>隐私条例</h2>
+      <p><strong>生效日期：</strong>2024年1月1日</p>
+      <p><strong>最后更新：</strong>2024年1月1日</p>
+      
+      <h3>1. 信息收集</h3>
+      <p>我们仅收集您通过WhatsApp联系我们时自愿提供的个人信息，包括姓名、联系电话等。这些信息仅用于招聘沟通目的。</p>
+      
+      <h3>2. 信息使用</h3>
+      <p>收集的个人信息仅用于：</p>
+      <ul style="margin-left: 20px; margin-bottom: 15px;">
+        <li>与您沟通职位详情</li>
+        <li>安排面试和工作事宜</li>
+        <li>发送相关招聘信息</li>
+      </ul>
+      
+      <h3>3. 信息保护</h3>
+      <p>我们承诺不会将您的个人信息出售、出租或与第三方共享。所有信息均安全存储，仅授权人员可访问。</p>
+      
+      <h3>4. 您的权利</h3>
+      <p>您有权随时要求查看、更正或删除我们持有的您的个人信息。如需行使此权利，请通过WhatsApp联系我们。</p>
+      
+      <h3>5. 联系方式</h3>
+      <p>如对本隐私条例有任何疑问，请通过WhatsApp +1 9432626236 联系我们。</p>
+    </div>
+  </div>
+
+  <!-- 联系我们弹窗 -->
+  <div id="contact-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('contact')">&times;</span>
+      <h2>联系我们</h2>
+      <p><strong>公司名称：</strong>美华人力资源有限公司</p>
+      <p><strong>英文名称：</strong>American Chinese Human Resources Co., Ltd.</p>
+      <p><strong>联系电话：</strong>+1 9432626236</p>
+      <p><strong>联系时间：</strong>周一至周日 9:00 AM - 9:00 PM (EST)</p>
+      <p><strong>地址：</strong>123 Main Street, Suite 100, New York, NY 10001, USA</p>
+      
+      <p style="margin-top: 30px;">
+        <a href="https://wa.me/19432626236?text=您好，我想咨询更多信息" class="cta-button" target="_blank" style="font-size: 1.2rem; padding: 15px 30px;">
+          💬 WhatsApp 联系我们
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- 关于我们弹窗 -->
+  <div id="about-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('about')">&times;</span>
+      <h2>关于我们</h2>
+      <p><strong>美华人力资源有限公司</strong>（American Chinese Human Resources Co., Ltd.）是一家专注于服务美国华人社区的专业人力资源公司。</p>
+      
+      <h3>我们的使命</h3>
+      <p>为美国华人提供优质的就业机会，搭建雇主与求职者之间的桥梁，促进华人社区的繁荣发展。</p>
+      
+      <h3>我们的服务</h3>
+      <ul style="margin-left: 20px; margin-bottom: 15px;">
+        <li>代购员招聘与管理</li>
+        <li>职业咨询与指导</li>
+        <li>雇主对接服务</li>
+        <li>就业培训支持</li>
+      </ul>
+      
+      <h3>为什么选择我们</h3>
+      <p>✅ 正规注册，合法经营<br>
+         ✅ 零押金，无隐形费用<br>
+         ✅ 工资日结，绝不拖欠<br>
+         ✅ 专业团队，贴心服务<br>
+         ✅ 数千成功案例，口碑保证</p>
+      
+      <h3>联系我们</h3>
+      <p>WhatsApp: +1 9432626236<br>
+         服务时间：周一至周日 9:00 AM - 9:00 PM (EST)</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(type) {
+      document.getElementById(type + '-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(type) {
+      document.getElementById(type + '-modal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    // 点击弹窗外部关闭
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+    
+    // ESC键关闭弹窗
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
