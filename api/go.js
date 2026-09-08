@@ -19,21 +19,26 @@ module.exports = async (req, res) => {
     `您好，我看到美國代購員招聘廣告，想應徵瞭解詳情。我的諮詢編號：${ref}`;
   const target = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
-  // 記錄點擊（不擋跳轉）
-  insertRow("ad_clicks", {
-    ref_code: ref,
-    site: SITE,
-    type,
-    campaign: query.campaign ? String(query.campaign).slice(0, 100) : "recruit",
-    gclid: track.gclid || null,
-    ttclid: track.ttclid || null,
-    utm_source: track.utm_source || null,
-    utm_medium: track.utm_medium || null,
-    utm_campaign: track.utm_campaign || null,
-    landing: query.landing ? String(query.landing).slice(0, 300) : null,
-    ip: getClientIp(req),
-    ua: (req.headers["user-agent"] || "").toString().slice(0, 300),
-  });
+  // 記錄點擊後再跳轉。Serverless 函數回應後可能被凍結，未 await 的寫入會遺失，
+  // 因此先 await 確保點擊與歸因資料持久化（失敗也不擋使用者跳 WhatsApp）。
+  try {
+    await insertRow("ad_clicks", {
+      ref_code: ref,
+      site: SITE,
+      type,
+      campaign: query.campaign ? String(query.campaign).slice(0, 100) : "recruit",
+      gclid: track.gclid || null,
+      ttclid: track.ttclid || null,
+      utm_source: track.utm_source || null,
+      utm_medium: track.utm_medium || null,
+      utm_campaign: track.utm_campaign || null,
+      landing: query.landing ? String(query.landing).slice(0, 300) : null,
+      ip: getClientIp(req),
+      ua: (req.headers["user-agent"] || "").toString().slice(0, 300),
+    });
+  } catch (e) {
+    console.error("[go] log click failed:", e.message);
+  }
 
   res.writeHead(302, { Location: target, "Cache-Control": "no-store" });
   res.end();
