@@ -328,6 +328,27 @@
   </div>
 
   <script>
+    // ===== 广告归因：拦截 gclid / ttclid / fbclid / utm =====
+    var TRACK_KEYS = ["gclid","ttclid","fbclid","utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+    (function() {
+      var q = new URLSearchParams(location.search);
+      var saved = {};
+      try { saved = JSON.parse(sessionStorage.getItem("adParams") || "{}"); } catch(e) { saved = {}; }
+      TRACK_KEYS.forEach(function(k){ var v = q.get(k); if (v) saved[k] = v; });
+      try { sessionStorage.setItem("adParams", JSON.stringify(saved)); } catch(e) {}
+      // 所有 WhatsApp 按钮统一走伺服器转址 /api/go（记录点击 + 302 跳转）
+      var p = new URLSearchParams();
+      p.set("type", "wa");
+      p.set("campaign", "recruit");
+      TRACK_KEYS.forEach(function(k){ if (saved[k]) p.set(k, saved[k]); });
+      var url = "/api/go?" + p.toString();
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) {
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+      });
+    })();
+
     function openModal(type) {
       document.getElementById(type + '-modal').classList.add('active');
       document.body.style.overflow = 'hidden';
